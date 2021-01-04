@@ -56,17 +56,17 @@ public class SearchPlaceBean {
         return searchHalalPlaceMetadata;
     }
 
-    public SearchHalalPlaceMetadata getSearchHalalPlaceMetadata(String city) {
-
-        SearchPlaceMetadataEntity searchPlaceMetadataEntity = em.find(SearchPlaceMetadataEntity.class, city);
-
-        if (searchPlaceMetadataEntity == null) {
-            throw new NotFoundException();
-        }
-
-        SearchHalalPlaceMetadata searchHalalPlaceMetadata = SearchPlaceMetadataConverter.toDto(searchPlaceMetadataEntity);
-        return searchHalalPlaceMetadata;
-    }
+//    public SearchHalalPlaceMetadata getSearchHalalPlaceMetadata(String city) {
+//
+//        SearchPlaceMetadataEntity searchPlaceMetadataEntity = em.find(SearchPlaceMetadataEntity.class, city);
+//
+//        if (searchPlaceMetadataEntity == null) {
+//            throw new NotFoundException();
+//        }
+//
+//        SearchHalalPlaceMetadata searchHalalPlaceMetadata = SearchPlaceMetadataConverter.toDto(searchPlaceMetadataEntity);
+//        return searchHalalPlaceMetadata;
+//    }
 
     public SearchHalalPlaceMetadata createSearchHalalPlaceMetadata(SearchHalalPlaceMetadata searchHalalPlaceMetadata) {
 
