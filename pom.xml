@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.selma.halal.food.project</groupId>
+  <artifactId>search-halal-place</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>api</module>
+    <module>lib</module>
+    <module>models</module>
+    <module>services</module>
+  </modules>
+
+  <name>search-halal-place</name>
+
+  <properties>
+    <maven.compiler.source>14</maven.compiler.source>
+    <maven.compiler.target>14</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <kumuluzee.version>3.11.0</kumuluzee.version>
+    <kumuluzee-rest.version>1.3.2</kumuluzee-rest.version>
+    <kumuluzee-config.version>1.3.0</kumuluzee-config.version>
+    <kumuluzee-health.version>2.3.1</kumuluzee-health.version>
+    <kumuluzee-metrics.version>2.3.0</kumuluzee-metrics.version>
+    <kumuluzee-config-mp.version>1.4.0</kumuluzee-config-mp.version>
+    <kumuluzee-openapi-mp.version>1.3.0</kumuluzee-openapi-mp.version>
+    <kumuluzee-cors.version>1.0.6</kumuluzee-cors.version>
+    <kumuluzee-logs.version>1.4.2</kumuluzee-logs.version>
+    <kumuluzee-rest-client.version>1.4.1.2</kumuluzee-rest-client.version>
+
+    <postgresql.version>42.2.13</postgresql.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>3.8.1</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.kumuluz.ee</groupId>
+        <artifactId>kumuluzee-bom</artifactId>
+        <version>${kumuluzee.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+
+      <dependency>
+        <artifactId>kumuluzee-config-etcd</artifactId>
+        <groupId>com.kumuluz.ee.config</groupId>
+        <version>${kumuluzee-config.version}</version>
+      </dependency>
+
+
+
+      <dependency>
+        <groupId>com.kumuluz.ee</groupId>
+        <artifactId>kumuluzee-servlet-jetty</artifactId>
+        <version>3.11.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.weld.se</groupId>
+        <artifactId>weld-se</artifactId>
+        <version>2.3.4.Final</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee</groupId>
+        <artifactId>kumuluzee-el-uel</artifactId>
+        <version>${kumuluzee-el-uel.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.kumuluz.ee</groupId>
+        <artifactId>kumuluzee-bean-validation-hibernate-validator</artifactId>
+        <version>${kumuluzee-bean-validation.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-jdk14</artifactId>
+        <version>1.7.25</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.25</version>
+      </dependency>
+
+
+
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${postgresql.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.rest</groupId>
+        <artifactId>kumuluzee-rest-core</artifactId>
+        <version>${kumuluzee-rest.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>kumuluzee-config-consul</artifactId>
+        <groupId>com.kumuluz.ee.config</groupId>
+        <version>${kumuluzee-config.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.kumuluz.ee.health</groupId>
+        <artifactId>kumuluzee-health</artifactId>
+        <version>${kumuluzee-health.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.kumuluz.ee.metrics</groupId>
+        <artifactId>kumuluzee-metrics-core</artifactId>
+        <version>${kumuluzee-metrics.version}</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>com.kumuluz.ee.cors</groupId>
+        <artifactId>kumuluzee-cors</artifactId>
+        <version>${kumuluzee-cors.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>kumuluzee-logs-log4j2</artifactId>
+        <groupId>com.kumuluz.ee.logs</groupId>
+        <version>${kumuluzee-logs.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.kumuluz.ee.fault.tolerance</groupId>
+        <artifactId>kumuluzee-fault-tolerance-smallrye</artifactId>
+        <version>${kumuluzee-fault-tolerance.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.kumuluz.ee.rest-client</groupId>
+        <artifactId>kumuluzee-rest-client</artifactId>
+        <version>${kumuluzee-rest-client.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.selma.halal.food.project</groupId>
+        <artifactId>search-halal-place-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.selma.halal.food.project</groupId>
+        <artifactId>search-halal-place-lib</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.selma.halal.food.project</groupId>
+        <artifactId>search-halal-place-models</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.selma.halal.food.project</groupId>
+        <artifactId>search-halal-place-services</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>
