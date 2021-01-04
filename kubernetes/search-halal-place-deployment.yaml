@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-halal-place-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: search-halal-place
+  template:
+    metadata:
+      labels:
+        app: search-halal-place
+    spec:
+      containers:
+        - image: selmah/rso-project:search-halal-place-api-v1-04-01-2021
+          name: search-halal-place
+          env:
+            - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+              value: jdbc:postgresql://suleiman.db.elephantsql.com:5432/faqarwbt
+            - name: KUMULUZEE_DATASOURCES0_USERNAME
+              value: faqarwbt
+            - name: KUMULUZEE_DATASOURCES0_PASSWORD
+              value: R4FfuzXcZvXXZmse7H-REUTUK1BRI7Fa
+          ports:
+            - containerPort: 8080
+              name: server
+              protocol: TCP
