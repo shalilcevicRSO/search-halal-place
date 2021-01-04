@@ -1,0 +1,3 @@
+com\selma\halal\food\project\api\v1\dtos\ApiError.class
+com\selma\halal\food\project\api\v1\resources\SearchHalalPlaceResource.class
+com\selma\halal\food\project\api\v1\SearchHalalPlaceApplication.class
