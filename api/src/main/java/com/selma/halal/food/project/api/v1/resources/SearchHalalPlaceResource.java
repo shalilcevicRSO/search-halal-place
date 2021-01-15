@@ -1,5 +1,6 @@
 package com.selma.halal.food.project.api.v1.resources;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.selma.halal.food.project.lib.SearchHalalPlaceMetadata;
 import com.selma.halal.food.project.services.beans.SearchPlaceBean;
 
@@ -17,6 +18,7 @@ import java.util.logging.Logger;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/searchplace")
+@CrossOrigin(supportedMethods = "GET, POST, HEAD, DELETE, OPTIONS")
 public class SearchHalalPlaceResource {
 
     private Logger log = Logger.getLogger(SearchHalalPlaceResource.class.getName());
@@ -64,7 +66,7 @@ public class SearchHalalPlaceResource {
     @POST
     public Response createSearchHalalPlaceMetadata(SearchHalalPlaceMetadata searchHalalPlaceMetadata) {
 
-        if ((searchHalalPlaceMetadata.getName() == null && searchHalalPlaceMetadata.getCity() == null && searchHalalPlaceMetadata.getCountry() == null)) {
+        if ((searchHalalPlaceMetadata.getName() == null || searchHalalPlaceMetadata.getCity() == null || searchHalalPlaceMetadata.getCountry() == null)) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
         else if (searchHalalPlaceMetadata.getCity() == null) {

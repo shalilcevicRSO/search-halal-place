@@ -13,9 +13,19 @@ kumuluzee:
       username: postgres
       password: projectRSOhFood
       max-pool-size: 20
+  health:
+    checks:
+      data-source-health-check:
+        type: liveness
+        jndi-name: jdbc/SearchHalalPlaceDS
+    metrics:
+      web-instrumentation:
+        - name: searchplace-endpoint
+          url-pattern: /v1/searchplace/*
   rest-properties:
     maintenance-mode: false
+    broken: false
 
 
-# docker run -d --name pg-search-place-metadata -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=projectRSOhFood -e POSTGRES_DB=halal_place_metadata -p 5432:5432 postgres:13
+# docker run -d --name pg-search-place-metadata -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=projectRSOhFood -e POSTGRES_DB=search_place_metadata -p 5432:5432 postgres:13
 # docker run -p 8080:8080 --network rso -e KUMULUZEE_DATASOURCES0_CONNECTIONURL=jdbc:postgresql://localhost:5432/halal_place_metadata rso-dn

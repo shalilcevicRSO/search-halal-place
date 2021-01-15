@@ -23,6 +23,21 @@ spec:
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
               value: R4FfuzXcZvXXZmse7H-REUTUK1BRI7Fa
           ports:
-            - containerPort: 8080
+            - containerPort: 80
               name: server
               protocol: TCP
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: search-halal-place
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: search-halal-place
