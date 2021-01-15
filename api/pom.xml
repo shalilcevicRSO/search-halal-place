@@ -40,6 +40,10 @@
       <artifactId>kumuluzee-config-etcd</artifactId>
       <groupId>com.kumuluz.ee.config</groupId>
     </dependency>
+    <dependency>
+      <groupId>com.kumuluz.ee.cors</groupId>
+      <artifactId>kumuluzee-cors</artifactId>
+    </dependency>
 
 
 
